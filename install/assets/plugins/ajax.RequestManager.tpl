@@ -14,4 +14,4 @@
  * @internal        @installset base, sample
  */
 
-return require MODX_BASE_PATH . 'assets/plugins/RequestManager/ajax.RequestManager.php';
+return require MODX_BASE_PATH . 'assets/modules/RequestManager/ajax.RequestManager.php';

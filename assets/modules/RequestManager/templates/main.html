@@ -93,7 +93,9 @@
         jQuery('#request-table a.edit').editable({
             url: '/comment',
             type: 'text',
-            name: 'comment'
+            pk: 1,
+            name: 'comment',
+            title: 'Enter username'
         });
 
         jQuery("#request-table").DataTable({
