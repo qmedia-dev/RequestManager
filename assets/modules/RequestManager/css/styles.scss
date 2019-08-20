@@ -10,6 +10,11 @@ body {
     flex-direction: column;
 }
 
+.container {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
 .loading {
     overflow: hidden;
 
@@ -60,27 +65,6 @@ body {
     }
 }
 
-.dataTables_length {
-    display: none !important;
-}
-
-.dataTables_filter {
-    width: 100% !important;
-    float: none !important;
-
-    label {
-        display: flex;
-        align-items: center;
-        margin: 0;
-        padding: 1px;
-
-        input {
-            width: 100% !important;
-            margin-left: 12px !important;
-        }
-    }
-}
-
 .dropdown-menu {
     padding: 0;
     margin-top: 10px;
@@ -90,4 +74,12 @@ body {
     .divider {
         margin: 0;
     }
+}
+
+.dataTables_wrapper {
+    padding: 0 15px;
+}
+
+.table.data {
+    margin: 0 -15px;
 }
