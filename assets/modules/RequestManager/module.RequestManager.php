@@ -19,7 +19,8 @@ $placeholders = array(
     'theme'             => $module->theme,
     'module_id'         => $module->module_id,
     'module_url'        => $module->module_url,
-    'jquery_path'       => $module->jquery_path
+    'jquery_path'       => $module->jquery_path,
+    'base_path'         => $module->base_path
 );
 
 $output = $modx->parseText($tpl, $placeholders);

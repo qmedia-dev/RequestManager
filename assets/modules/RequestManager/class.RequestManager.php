@@ -11,10 +11,11 @@ class RequestManager
         $this->modx = $modx;
         $this->config = $config;
 
-        $this->module_id = (int) $_GET['id'];
-        $this->module_url = 'index.php?a=112&id=' . $this->moduleid;
-        $this->theme = $this->modx->config['manager_theme'] ? $this->modx->config['manager_theme'] : 'default';
-        $this->jquery_path = $this->modx->config['mgr_jquery_path'] ? $this->modx->config['mgr_jquery_path'] : 'media/script/jquery/jquery.min.js';
+        $this->module_id        = (int) $_GET['id'];
+        $this->module_url       = 'index.php?a=112&id=' . $this->moduleid;
+        $this->base_path        = $this->modx->config['base_url'];
+        $this->theme            = $this->modx->config['manager_theme'] ? $this->modx->config['manager_theme'] : 'default';
+        $this->jquery_path      = $this->modx->config['mgr_jquery_path'] ? $this->modx->config['mgr_jquery_path'] : 'media/script/jquery/jquery.min.js';
     }
 
     public function getFileContents($file)
