@@ -58,26 +58,28 @@
                 </tr>
             </thead>
             <tbody>
-                <td>
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-success btn-sm dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Opened</button>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="#">Opened</a></li>
-                            <li><a href="#">Closed</a></li>
-                            <li class="divider"></li>
-                            <li><a href="#">Delete</a></li>
-                        </ul>
-                    </div>
-                </td>
-                <td class="text-nowrap">2019/09/12</td>
-                <td>Минск</td>
-                <td>Координатор рекламных акций</td>
-                <td>Иванов Алексей Константинович</td>
-                <td class="text-nowrap">ivanov@gmail.com</td>
-                <td class="text-nowrap">+375 (29) 123-45-67</td>
-                <td></td>
-                <td></td>
-                <td><a class="edit" href="javascript:void(0);">Пусто</a></td>
+                <tr>
+                    <td>
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-success btn-sm dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Opened</button>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="#">Opened</a></li>
+                                <li><a href="#">Closed</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#">Delete</a></li>
+                            </ul>
+                        </div>
+                    </td>
+                    <td class="text-nowrap">2019/09/12</td>
+                    <td>Минск</td>
+                    <td>Координатор рекламных акций</td>
+                    <td>Иванов Алексей Константинович</td>
+                    <td class="text-nowrap">ivanov@gmail.com</td>
+                    <td class="text-nowrap">+375 (29) 123-45-67</td>
+                    <td></td>
+                    <td></td>
+                    <td><a class="edit" href="javascript:void(0);">Пусто</a></td>
+                </tr>
             </tbody>
         </table>
     </div>
@@ -87,69 +89,64 @@
     <script src="../assets/modules/RequestManager/js/bootstrap-editable.min.js"></script>
     <script src="../assets/modules/RequestManager/js/jquery.datatables.min.js"></script>
     <script>
-        jQuery(document).ready(function ($) {
+        jQuery('#request-table a.edit').editable({
+            url: '../assets/modules/RequestManager/post',
+            type: 'text',
+            pk: 1,
+            name: 'comment',
+            title: 'Enter comment'
+        });
 
-            $('#request-editable a.edit').editable({
-                url: '/post',
-                type: 'text',
-                pk: 1,
-                name: 'username',
-                title: 'Enter username'
-            });
-
-            $("#request-table").DataTable({
-                "columns": [{
-                    "orderable": true
-                }, {
-                    "orderable": true
-                }, {
-                    "orderable": true
-                }, {
-                    "orderable": true
-                }, {
-                    "orderable": true
-                }, {
-                    "orderable": false
-                }, {
-                    "orderable": false
-                }, {
-                    "orderable": false
-                }, {
-                    "orderable": false
-                }, {
-                    "orderable": false
-                }, {
-                    "orderable": false
-                }],
-                "order": [
-                    [2, 'asc']
-                ],
-                "lengthMenu": [10, 25, 50],
-                "language": {
-                    "decimal": "",
-                    "emptyTable": "Данные отсутствуют в таблице",
-                    "info": "Показаны строки с _START_ по _END_ из _TOTAL_",
-                    "infoEmpty": "Список пуст",
-                    "infoFiltered": "(отфильтровано из _MAX_ строк)",
-                    "infoPostFix": "",
-                    "thousands": ",",
-                    "lengthMenu": "Показывать по _MENU_ строк",
-                    "loadingRecords": "Загрузка...",
-                    "processing": "Подождите...",
-                    "search": "Поиск:",
-                    "zeroRecords": "Совпадений не найдено",
-                    "paginate": {
-                        "first": "Начало",
-                        "last": "Конец",
-                        "next": "Далее",
-                        "previous": "Назад"
-                    },
-                    "aria": {
-                        "sortAscending": ": отсортировать по возрастанию",
-                        "sortDescending": ": отсортировать по убыванию"
-                    }
+        jQuery("#request-table").DataTable({
+            "columns": [{
+                "orderable": true
+            }, {
+                "orderable": true
+            }, {
+                "orderable": true
+            }, {
+                "orderable": true
+            }, {
+                "orderable": true
+            }, {
+                "orderable": false
+            }, {
+                "orderable": false
+            }, {
+                "orderable": false
+            }, {
+                "orderable": false
+            }, {
+                "orderable": false
+            }],
+            "order": [
+                [2, 'asc']
+            ],
+            "lengthMenu": [10, 25, 50],
+            "language": {
+                "decimal": "",
+                "emptyTable": "Данные отсутствуют в таблице",
+                "info": "Показаны строки с _START_ по _END_ из _TOTAL_",
+                "infoEmpty": "Список пуст",
+                "infoFiltered": "(отфильтровано из _MAX_ строк)",
+                "infoPostFix": "",
+                "thousands": ",",
+                "lengthMenu": "Показывать по _MENU_ строк",
+                "loadingRecords": "Загрузка...",
+                "processing": "Подождите...",
+                "search": "Поиск:",
+                "zeroRecords": "Совпадений не найдено",
+                "paginate": {
+                    "first": "Начало",
+                    "last": "Конец",
+                    "next": "Далее",
+                    "previous": "Назад"
+                },
+                "aria": {
+                    "sortAscending": ": отсортировать по возрастанию",
+                    "sortDescending": ": отсортировать по убыванию"
                 }
-            });
+            }
         });
     </script>
 </body>
