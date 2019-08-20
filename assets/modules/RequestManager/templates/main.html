@@ -91,10 +91,10 @@
     <script src="../assets/modules/RequestManager/js/jquery.datatables.min.js"></script>
     <script>
         jQuery('#request-table a.edit').editable({
+
             url: '//assets/modules/RequestManager/post.php',
-            type: 'text',
-            name: 'comment',
-            pk: '1'
+            type: 'textarea',
+            name: 'comment'
         });
 
         jQuery("#request-table").DataTable({
