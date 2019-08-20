@@ -24,23 +24,11 @@ body {
     flex-grow: 1;
 }
 
-.table {
-    &.data {
+.table.data {
 
-        td,
-        th {
-            &.nowrap {}
-        }
-
-        .actions {
-            a {
-                text-decoration: none;
-            }
-
-            span {
-                opacity: 0.25;
-            }
-        }
+    td,
+    th {
+        vertical-align: middle;
     }
 }
 
@@ -90,5 +78,16 @@ body {
             width: 100% !important;
             margin-left: 12px !important;
         }
+    }
+}
+
+.dropdown-menu {
+    padding: 0;
+    margin-top: 10px;
+    border-radius: 0;
+    border: 1px solid #d8dee4;
+
+    .divider {
+        margin: 0;
     }
 }
