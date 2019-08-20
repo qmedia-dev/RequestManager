@@ -3,6 +3,7 @@
 if (empty($_SERVER['HTTP_X_REQUESTED_WITH']) || strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) != 'xmlhttprequest') {
     return;
 }
+$modx->logEvent(1, 3, json_encode($_POST, JSON_UNESCAPED_UNICODE), 'Request Manager');
 switch ($_GET['q']) {
     case 'comment':
 
