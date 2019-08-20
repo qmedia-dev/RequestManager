@@ -1,3 +1,15 @@
+html {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+}
+
+body {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
 .loading {
     overflow: hidden;
 
@@ -8,13 +20,16 @@
     }
 }
 
+.table-responsive {
+    flex-grow: 1;
+}
+
 .table {
     &.data {
 
         td,
         th {
-            white-space: nowrap;
-            vertical-align: middle;
+            &.nowrap {}
         }
 
         .actions {

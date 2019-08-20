@@ -3,13 +3,15 @@
 
 <head>
     <title>RequestManager</title>
-    <link rel="stylesheet" type="text/css" href="../assets/modules/RequestManager/datatables/css/jquery.datatables.css">
+    <link rel="stylesheet" type="text/css" href="../assets/modules/RequestManager/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../assets/modules/RequestManager/css/jquery.datatables.css">
     <link rel="stylesheet" type="text/css" href="media/style/[+theme+]/css/styles.min.css">
     <link rel="stylesheet" type="text/css" href="../assets/modules/RequestManager/css/styles.css">
-    <script type="text/javascript" src="media/script/tabpane.js"></script>
     <script type="text/javascript" src="[+jquery_path+]"></script>
+    <script type="text/javascript" src="media/script/tabpane.js"></script>
     <script type="text/javascript" src="media/script/mootools/mootools.js"></script>
-    <script src="../assets/modules/RequestManager/datatables/js/jquery.datatables.min.js"></script>
+    <script src="../assets/modules/RequestManager/js/bootstrap.min.js"></script>
+    <script src="../assets/modules/RequestManager/js/jquery.datatables.min.js"></script>
     <script>
         function showLoader() {
             document.querySelector('body').classList.add('loading');
@@ -19,8 +21,8 @@
 
 <body>
     <div id="mainloader"></div>
-    <h1>
-        <i class="fa fa-envelope-open-o"></i>RequestManager
+    <h1 style="margin-left: 10px;">
+        <i class="fa fa-envelope-open-o"></i>Request Manager
     </h1>
 
     <div id="actions">
@@ -38,83 +40,103 @@
 
     <div class="container pt-1 pb-1">
         <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eum earum quasi tempore illo omnis voluptates quia, cum deleniti incidunt ullam numquam suscipit, culpa saepe quos enim, provident facere aperiam nostrum.</p>
-        <br>
-        <div class="table-responsive">
-            <table class="display table data" id="request-table">
-                <thead>
-                    <tr>
-                        <th class="">Status</th>
-                        <th class="">Date</th>
-                        <th class="">City</th>
-                        <th class="">Vacancy</th>
-                        <th class="">Full Name</th>
-                        <th class="">Email</th>
-                        <th class="">Phone</th>
-                        <th class="">Comment</th>
-                        <th class="">Resume File</th>
-                        <th class="">Employee Comment</th>
-                    </tr>
-                </thead>
-                <tbody>
-
-                </tbody>
-            </table>
-            <script>
-                jQuery("#item-table").DataTable({
-                    "columns": [{
-                        "orderable": true
-                    }, {
-                        "orderable": true
-                    }, {
-                        "orderable": true
-                    }, {
-                        "orderable": true
-                    }, {
-                        "orderable": true
-                    }, {
-                        "orderable": false
-                    }, {
-                        "orderable": false
-                    }, {
-                        "orderable": false
-                    }, {
-                        "orderable": false
-                    }, {
-                        "orderable": false
-                    }, {
-                        "orderable": false
-                    }],
-                    "order": [
-                        [2, 'asc']
-                    ],
-                    "lengthMenu": [10, 25, 50],
-                    "language": {
-                        "decimal": "",
-                        "emptyTable": "Данные отсутствуют в таблице",
-                        "info": "Показаны строки с _START_ по _END_ из _TOTAL_",
-                        "infoEmpty": "Список пуст",
-                        "infoFiltered": "(отфильтровано из _MAX_ строк)",
-                        "infoPostFix": "",
-                        "thousands": ",",
-                        "lengthMenu": "Показывать по _MENU_ строк",
-                        "loadingRecords": "Загрузка...",
-                        "processing": "Подождите...",
-                        "search": "Поиск:",
-                        "zeroRecords": "Совпадений не найдено",
-                        "paginate": {
-                            "first": "Начало",
-                            "last": "Конец",
-                            "next": "Далее",
-                            "previous": "Назад"
-                        },
-                        "aria": {
-                            "sortAscending": ": отсортировать по возрастанию",
-                            "sortDescending": ": отсортировать по убыванию"
-                        }
+    </div>
+    <div class="table-responsive">
+        <table class="display table data" id="request-table">
+            <thead>
+                <tr>
+                    <th class="">Status</th>
+                    <th class="">Date</th>
+                    <th class="">City</th>
+                    <th class="">Vacancy</th>
+                    <th class="">Full Name</th>
+                    <th class="">Email</th>
+                    <th class="">Phone</th>
+                    <th class="">Comment</th>
+                    <th class="">Resume File</th>
+                    <th class="">Employee Comment</th>
+                </tr>
+            </thead>
+            <tbody>
+                <td>
+                    <div class="btn-group">
+                        <button class="btn btn-success btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Opened
+                        </button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#">Opened</a>
+                            <a class="dropdown-item" href="#">Closed</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Delete</a>
+                        </div>
+                    </div>
+                </td>
+                <td class="text-nowrap">2019/09/12</td>
+                <td>Минск</td>
+                <td>Координатор рекламных акций</td>
+                <td>Иванов Алексей Константинович</td>
+                <td class="text-nowrap">ivanov@gmail.com</td>
+                <td class="text-nowrap">+375 (29) 123-45-67</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tbody>
+        </table>
+        <script>
+            jQuery("#item-table").DataTable({
+                "columns": [{
+                    "orderable": true
+                }, {
+                    "orderable": true
+                }, {
+                    "orderable": true
+                }, {
+                    "orderable": true
+                }, {
+                    "orderable": true
+                }, {
+                    "orderable": false
+                }, {
+                    "orderable": false
+                }, {
+                    "orderable": false
+                }, {
+                    "orderable": false
+                }, {
+                    "orderable": false
+                }, {
+                    "orderable": false
+                }],
+                "order": [
+                    [2, 'asc']
+                ],
+                "lengthMenu": [10, 25, 50],
+                "language": {
+                    "decimal": "",
+                    "emptyTable": "Данные отсутствуют в таблице",
+                    "info": "Показаны строки с _START_ по _END_ из _TOTAL_",
+                    "infoEmpty": "Список пуст",
+                    "infoFiltered": "(отфильтровано из _MAX_ строк)",
+                    "infoPostFix": "",
+                    "thousands": ",",
+                    "lengthMenu": "Показывать по _MENU_ строк",
+                    "loadingRecords": "Загрузка...",
+                    "processing": "Подождите...",
+                    "search": "Поиск:",
+                    "zeroRecords": "Совпадений не найдено",
+                    "paginate": {
+                        "first": "Начало",
+                        "last": "Конец",
+                        "next": "Далее",
+                        "previous": "Назад"
+                    },
+                    "aria": {
+                        "sortAscending": ": отсортировать по возрастанию",
+                        "sortDescending": ": отсортировать по убыванию"
                     }
-                });
-            </script>
-        </div>
+                }
+            });
+        </script>
     </div>
 </body>
 
