@@ -59,13 +59,13 @@
     }
 
     &.closed {
-        background-color: #444444 !important;
+        background-color: #d9534f !important;
         border-color: transparent;
         color: #ffffff;
     }
 
     &.deleted {
-        background-color: #d9534f !important;
+        background-color: #444444 !important;
         border-color: transparent;
         color: #ffffff;
     }
