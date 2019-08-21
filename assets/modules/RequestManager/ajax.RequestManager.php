@@ -4,12 +4,29 @@ if (empty($_SERVER['HTTP_X_REQUESTED_WITH']) || strtolower($_SERVER['HTTP_X_REQU
     return;
 }
 switch ($_GET['q']) {
-    case 'comment':
 
+    case 'request_comment':
+
+        // Изменение комментария к заявке
         $pk = $_POST['pk'];
         $name = $_POST['name'];
         $value = $_POST['value'];
-        echo ($_POST);
+
+        // Вывод поступившей инфы в лог админки (для отладки)
+        $modx->logEvent(1, 1, json_encode($_POST, JSON_UNESCAPED_UNICODE), 'request_comment');
+
+        die();
+        break;
+
+    case 'request_status':
+
+        // Изменение статуса заявки
+        $pk = $_POST['pk'];
+        $name = $_POST['name'];
+        $value = $_POST['value'];
+
+        // Вывод поступившей инфы в лог админки (для отладки)
+        $modx->logEvent(1, 1, json_encode($_POST, JSON_UNESCAPED_UNICODE), 'request_comment');
 
         die();
         break;

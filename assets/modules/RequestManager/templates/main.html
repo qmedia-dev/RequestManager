@@ -41,78 +41,296 @@
     <div class="container pt-1 pb-1">
         <p>Описание модуля, его предназначения, функционала, преимуществ и прочих прекрасностей...</p>
     </div>
-    <table class="display table data" id="request-table">
-        <thead>
-            <tr>
-                <th class="">Status</th>
-                <th class="">Date</th>
-                <th class="">City</th>
-                <th class="">Vacancy</th>
-                <th class="">Full Name</th>
-                <th class="">Email</th>
-                <th class="">Phone</th>
-                <th class="">Comment</th>
-                <th class="">Resume File</th>
-                <th class="">Employee Comment</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td><button type="button" class="btn btn-sm edit-status opened" data-value="opened">opened</button></td>
-                <td class="text-nowrap">2019/09/12</td>
-                <td>Минск</td>
-                <td>Координатор рекламных акций</td>
-                <td>Иванов Алексей Константинович</td>
-                <td class="text-nowrap">ivanov@gmail.com</td>
-                <td class="text-nowrap">+375 (29) 123-45-67</td>
-                <td></td>
-                <td></td>
-                <td><a class="edit-comment" href="javascript:void(0);"></a></td>
-            </tr>
-            <tr>
-                <td><button type="button" class="btn btn-sm edit-status closed" data-value="closed">closed</button></td>
-                <td class="text-nowrap">2019/09/12</td>
-                <td>Минск</td>
-                <td>HR Intern / Стажер в управление HR</td>
-                <td>Григорьева Светлана Ивановна</td>
-                <td class="text-nowrap">grigireva@gmail.com</td>
-                <td class="text-nowrap">+375 (29) 111-22-33</td>
-                <td>Рассмотрите, пожалуйста, мою кандидатуру на должность стажёра в HR-управление</td>
-                <td>
-                    <i class="fa fa-file-o"></i>
-                    <a href="#" download title="Резюме Григорьева">Резюме Григорьева</a>
-                </td>
-                <td><a class="edit-comment" href="javascript:void(0);"></a></td>
-            </tr>
-            <tr>
-                <td><button type="button" class="btn btn-sm edit-status deleted" data-value="deleted">deleted</button></td>
-                <td class="text-nowrap">2019/09/12</td>
-                <td>Минск</td>
-                <td>Координатор рекламных акций</td>
-                <td>Иванов Алексей Константинович</td>
-                <td class="text-nowrap">ivanov@gmail.com</td>
-                <td class="text-nowrap">+375 (29) 123-45-67</td>
-                <td></td>
-                <td></td>
-                <td><a class="edit-comment" href="javascript:void(0);"></a></td>
-            </tr>
-            <tr>
-                <td><button type="button" class="btn btn-sm edit-status closed" data-value="closed">closed</button></td>
-                <td class="text-nowrap">2019/09/12</td>
-                <td>Минск</td>
-                <td>HR Intern / Стажер в управление HR</td>
-                <td>Григорьева Светлана Ивановна</td>
-                <td class="text-nowrap">grigireva@gmail.com</td>
-                <td class="text-nowrap">+375 (29) 111-22-33</td>
-                <td>Рассмотрите, пожалуйста, мою кандидатуру на должность стажёра в HR-управление</td>
-                <td>
-                    <i class="fa fa-file-o"></i>
-                    <a href="#" download title="Резюме Григорьева">Резюме Григорьева</a>
-                </td>
-                <td><a class="edit-comment" href="javascript:void(0);"></a></td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="table-responsive">
+        <table class="display table data" id="request-table">
+            <thead>
+                <tr>
+                    <th class="">Status</th>
+                    <th class="">Date</th>
+                    <th class="">City</th>
+                    <th class="">Vacancy</th>
+                    <th class="">Full Name</th>
+                    <th class="">Email</th>
+                    <th class="">Phone</th>
+                    <th class="">Comment</th>
+                    <th class="">Resume File</th>
+                    <th class="">Employee Comment</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><button type="button" class="btn btn-sm edit-status opened" data-value="opened">opened</button></td>
+                    <td class="text-nowrap">2019/09/12</td>
+                    <td>Минск</td>
+                    <td>Координатор рекламных акций</td>
+                    <td>Иванов Алексей Константинович</td>
+                    <td class="text-nowrap">ivanov@gmail.com</td>
+                    <td class="text-nowrap">+375 (29) 123-45-67</td>
+                    <td></td>
+                    <td></td>
+                    <td><a class="edit-comment" href="javascript:void(0);"></a></td>
+                </tr>
+                <tr>
+                    <td><button type="button" class="btn btn-sm edit-status closed" data-value="closed">closed</button></td>
+                    <td class="text-nowrap">2019/09/12</td>
+                    <td>Минск</td>
+                    <td>HR Intern / Стажер в управление HR</td>
+                    <td>Григорьева Светлана Ивановна</td>
+                    <td class="text-nowrap">grigireva@gmail.com</td>
+                    <td class="text-nowrap">+375 (29) 111-22-33</td>
+                    <td>Рассмотрите, пожалуйста, мою кандидатуру на должность стажёра в HR-управление</td>
+                    <td>
+                        <i class="fa fa-file-o"></i>
+                        <a href="#" download title="Резюме Григорьева">Резюме Григорьева</a>
+                    </td>
+                    <td><a class="edit-comment" href="javascript:void(0);"></a></td>
+                </tr>
+                <tr>
+                    <td><button type="button" class="btn btn-sm edit-status deleted" data-value="deleted">deleted</button></td>
+                    <td class="text-nowrap">2019/09/12</td>
+                    <td>Минск</td>
+                    <td>Координатор рекламных акций</td>
+                    <td>Иванов Алексей Константинович</td>
+                    <td class="text-nowrap">ivanov@gmail.com</td>
+                    <td class="text-nowrap">+375 (29) 123-45-67</td>
+                    <td></td>
+                    <td></td>
+                    <td><a class="edit-comment" href="javascript:void(0);"></a></td>
+                </tr>
+                <tr>
+                    <td><button type="button" class="btn btn-sm edit-status closed" data-value="closed">closed</button></td>
+                    <td class="text-nowrap">2019/09/12</td>
+                    <td>Минск</td>
+                    <td>HR Intern / Стажер в управление HR</td>
+                    <td>Григорьева Светлана Ивановна</td>
+                    <td class="text-nowrap">grigireva@gmail.com</td>
+                    <td class="text-nowrap">+375 (29) 111-22-33</td>
+                    <td>Рассмотрите, пожалуйста, мою кандидатуру на должность стажёра в HR-управление</td>
+                    <td>
+                        <i class="fa fa-file-o"></i>
+                        <a href="#" download title="Резюме Григорьева">Резюме Григорьева</a>
+                    </td>
+                    <td><a class="edit-comment" href="javascript:void(0);"></a></td>
+                </tr>
+                <tr>
+                    <td><button type="button" class="btn btn-sm edit-status opened" data-value="opened">opened</button></td>
+                    <td class="text-nowrap">2019/09/12</td>
+                    <td>Минск</td>
+                    <td>Координатор рекламных акций</td>
+                    <td>Иванов Алексей Константинович</td>
+                    <td class="text-nowrap">ivanov@gmail.com</td>
+                    <td class="text-nowrap">+375 (29) 123-45-67</td>
+                    <td></td>
+                    <td></td>
+                    <td><a class="edit-comment" href="javascript:void(0);"></a></td>
+                </tr>
+                <tr>
+                    <td><button type="button" class="btn btn-sm edit-status closed" data-value="closed">closed</button></td>
+                    <td class="text-nowrap">2019/09/12</td>
+                    <td>Минск</td>
+                    <td>HR Intern / Стажер в управление HR</td>
+                    <td>Григорьева Светлана Ивановна</td>
+                    <td class="text-nowrap">grigireva@gmail.com</td>
+                    <td class="text-nowrap">+375 (29) 111-22-33</td>
+                    <td>Рассмотрите, пожалуйста, мою кандидатуру на должность стажёра в HR-управление</td>
+                    <td>
+                        <i class="fa fa-file-o"></i>
+                        <a href="#" download title="Резюме Григорьева">Резюме Григорьева</a>
+                    </td>
+                    <td><a class="edit-comment" href="javascript:void(0);"></a></td>
+                </tr>
+                <tr>
+                    <td><button type="button" class="btn btn-sm edit-status deleted" data-value="deleted">deleted</button></td>
+                    <td class="text-nowrap">2019/09/12</td>
+                    <td>Минск</td>
+                    <td>Координатор рекламных акций</td>
+                    <td>Иванов Алексей Константинович</td>
+                    <td class="text-nowrap">ivanov@gmail.com</td>
+                    <td class="text-nowrap">+375 (29) 123-45-67</td>
+                    <td></td>
+                    <td></td>
+                    <td><a class="edit-comment" href="javascript:void(0);"></a></td>
+                </tr>
+                <tr>
+                    <td><button type="button" class="btn btn-sm edit-status closed" data-value="closed">closed</button></td>
+                    <td class="text-nowrap">2019/09/12</td>
+                    <td>Минск</td>
+                    <td>HR Intern / Стажер в управление HR</td>
+                    <td>Григорьева Светлана Ивановна</td>
+                    <td class="text-nowrap">grigireva@gmail.com</td>
+                    <td class="text-nowrap">+375 (29) 111-22-33</td>
+                    <td>Рассмотрите, пожалуйста, мою кандидатуру на должность стажёра в HR-управление</td>
+                    <td>
+                        <i class="fa fa-file-o"></i>
+                        <a href="#" download title="Резюме Григорьева">Резюме Григорьева</a>
+                    </td>
+                    <td><a class="edit-comment" href="javascript:void(0);"></a></td>
+                </tr>
+                <tr>
+                    <td><button type="button" class="btn btn-sm edit-status opened" data-value="opened">opened</button></td>
+                    <td class="text-nowrap">2019/09/12</td>
+                    <td>Минск</td>
+                    <td>Координатор рекламных акций</td>
+                    <td>Иванов Алексей Константинович</td>
+                    <td class="text-nowrap">ivanov@gmail.com</td>
+                    <td class="text-nowrap">+375 (29) 123-45-67</td>
+                    <td></td>
+                    <td></td>
+                    <td><a class="edit-comment" href="javascript:void(0);"></a></td>
+                </tr>
+                <tr>
+                    <td><button type="button" class="btn btn-sm edit-status closed" data-value="closed">closed</button></td>
+                    <td class="text-nowrap">2019/09/12</td>
+                    <td>Минск</td>
+                    <td>HR Intern / Стажер в управление HR</td>
+                    <td>Григорьева Светлана Ивановна</td>
+                    <td class="text-nowrap">grigireva@gmail.com</td>
+                    <td class="text-nowrap">+375 (29) 111-22-33</td>
+                    <td>Рассмотрите, пожалуйста, мою кандидатуру на должность стажёра в HR-управление</td>
+                    <td>
+                        <i class="fa fa-file-o"></i>
+                        <a href="#" download title="Резюме Григорьева">Резюме Григорьева</a>
+                    </td>
+                    <td><a class="edit-comment" href="javascript:void(0);"></a></td>
+                </tr>
+                <tr>
+                    <td><button type="button" class="btn btn-sm edit-status deleted" data-value="deleted">deleted</button></td>
+                    <td class="text-nowrap">2019/09/12</td>
+                    <td>Минск</td>
+                    <td>Координатор рекламных акций</td>
+                    <td>Иванов Алексей Константинович</td>
+                    <td class="text-nowrap">ivanov@gmail.com</td>
+                    <td class="text-nowrap">+375 (29) 123-45-67</td>
+                    <td></td>
+                    <td></td>
+                    <td><a class="edit-comment" href="javascript:void(0);"></a></td>
+                </tr>
+                <tr>
+                    <td><button type="button" class="btn btn-sm edit-status closed" data-value="closed">closed</button></td>
+                    <td class="text-nowrap">2019/09/12</td>
+                    <td>Минск</td>
+                    <td>HR Intern / Стажер в управление HR</td>
+                    <td>Григорьева Светлана Ивановна</td>
+                    <td class="text-nowrap">grigireva@gmail.com</td>
+                    <td class="text-nowrap">+375 (29) 111-22-33</td>
+                    <td>Рассмотрите, пожалуйста, мою кандидатуру на должность стажёра в HR-управление</td>
+                    <td>
+                        <i class="fa fa-file-o"></i>
+                        <a href="#" download title="Резюме Григорьева">Резюме Григорьева</a>
+                    </td>
+                    <td><a class="edit-comment" href="javascript:void(0);"></a></td>
+                </tr>
+                <tr>
+                    <td><button type="button" class="btn btn-sm edit-status opened" data-value="opened">opened</button></td>
+                    <td class="text-nowrap">2019/09/12</td>
+                    <td>Минск</td>
+                    <td>Координатор рекламных акций</td>
+                    <td>Иванов Алексей Константинович</td>
+                    <td class="text-nowrap">ivanov@gmail.com</td>
+                    <td class="text-nowrap">+375 (29) 123-45-67</td>
+                    <td></td>
+                    <td></td>
+                    <td><a class="edit-comment" href="javascript:void(0);"></a></td>
+                </tr>
+                <tr>
+                    <td><button type="button" class="btn btn-sm edit-status closed" data-value="closed">closed</button></td>
+                    <td class="text-nowrap">2019/09/12</td>
+                    <td>Минск</td>
+                    <td>HR Intern / Стажер в управление HR</td>
+                    <td>Григорьева Светлана Ивановна</td>
+                    <td class="text-nowrap">grigireva@gmail.com</td>
+                    <td class="text-nowrap">+375 (29) 111-22-33</td>
+                    <td>Рассмотрите, пожалуйста, мою кандидатуру на должность стажёра в HR-управление</td>
+                    <td>
+                        <i class="fa fa-file-o"></i>
+                        <a href="#" download title="Резюме Григорьева">Резюме Григорьева</a>
+                    </td>
+                    <td><a class="edit-comment" href="javascript:void(0);"></a></td>
+                </tr>
+                <tr>
+                    <td><button type="button" class="btn btn-sm edit-status deleted" data-value="deleted">deleted</button></td>
+                    <td class="text-nowrap">2019/09/12</td>
+                    <td>Минск</td>
+                    <td>Координатор рекламных акций</td>
+                    <td>Иванов Алексей Константинович</td>
+                    <td class="text-nowrap">ivanov@gmail.com</td>
+                    <td class="text-nowrap">+375 (29) 123-45-67</td>
+                    <td></td>
+                    <td></td>
+                    <td><a class="edit-comment" href="javascript:void(0);"></a></td>
+                </tr>
+                <tr>
+                    <td><button type="button" class="btn btn-sm edit-status closed" data-value="closed">closed</button></td>
+                    <td class="text-nowrap">2019/09/12</td>
+                    <td>Минск</td>
+                    <td>HR Intern / Стажер в управление HR</td>
+                    <td>Григорьева Светлана Ивановна</td>
+                    <td class="text-nowrap">grigireva@gmail.com</td>
+                    <td class="text-nowrap">+375 (29) 111-22-33</td>
+                    <td>Рассмотрите, пожалуйста, мою кандидатуру на должность стажёра в HR-управление</td>
+                    <td>
+                        <i class="fa fa-file-o"></i>
+                        <a href="#" download title="Резюме Григорьева">Резюме Григорьева</a>
+                    </td>
+                    <td><a class="edit-comment" href="javascript:void(0);"></a></td>
+                </tr>
+                <tr>
+                    <td><button type="button" class="btn btn-sm edit-status opened" data-value="opened">opened</button></td>
+                    <td class="text-nowrap">2019/09/12</td>
+                    <td>Минск</td>
+                    <td>Координатор рекламных акций</td>
+                    <td>Иванов Алексей Константинович</td>
+                    <td class="text-nowrap">ivanov@gmail.com</td>
+                    <td class="text-nowrap">+375 (29) 123-45-67</td>
+                    <td></td>
+                    <td></td>
+                    <td><a class="edit-comment" href="javascript:void(0);"></a></td>
+                </tr>
+                <tr>
+                    <td><button type="button" class="btn btn-sm edit-status closed" data-value="closed">closed</button></td>
+                    <td class="text-nowrap">2019/09/12</td>
+                    <td>Минск</td>
+                    <td>HR Intern / Стажер в управление HR</td>
+                    <td>Григорьева Светлана Ивановна</td>
+                    <td class="text-nowrap">grigireva@gmail.com</td>
+                    <td class="text-nowrap">+375 (29) 111-22-33</td>
+                    <td>Рассмотрите, пожалуйста, мою кандидатуру на должность стажёра в HR-управление</td>
+                    <td>
+                        <i class="fa fa-file-o"></i>
+                        <a href="#" download title="Резюме Григорьева">Резюме Григорьева</a>
+                    </td>
+                    <td><a class="edit-comment" href="javascript:void(0);"></a></td>
+                </tr>
+                <tr>
+                    <td><button type="button" class="btn btn-sm edit-status deleted" data-value="deleted">deleted</button></td>
+                    <td class="text-nowrap">2019/09/12</td>
+                    <td>Минск</td>
+                    <td>Координатор рекламных акций</td>
+                    <td>Иванов Алексей Константинович</td>
+                    <td class="text-nowrap">ivanov@gmail.com</td>
+                    <td class="text-nowrap">+375 (29) 123-45-67</td>
+                    <td></td>
+                    <td></td>
+                    <td><a class="edit-comment" href="javascript:void(0);"></a></td>
+                </tr>
+                <tr>
+                    <td><button type="button" class="btn btn-sm edit-status closed" data-value="closed">closed</button></td>
+                    <td class="text-nowrap">2019/09/12</td>
+                    <td>Минск</td>
+                    <td>HR Intern / Стажер в управление HR</td>
+                    <td>Григорьева Светлана Ивановна</td>
+                    <td class="text-nowrap">grigireva@gmail.com</td>
+                    <td class="text-nowrap">+375 (29) 111-22-33</td>
+                    <td>Рассмотрите, пожалуйста, мою кандидатуру на должность стажёра в HR-управление</td>
+                    <td>
+                        <i class="fa fa-file-o"></i>
+                        <a href="#" download title="Резюме Григорьева">Резюме Григорьева</a>
+                    </td>
+                    <td><a class="edit-comment" href="javascript:void(0);"></a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 
 
     <script src="../assets/modules/RequestManager/js/bootstrap.min.js"></script>
@@ -153,7 +371,7 @@
 
         jQuery("#request-table").DataTable({
             "columns": [{
-                "orderable": true
+                "orderable": false
             }, {
                 "orderable": true
             }, {
