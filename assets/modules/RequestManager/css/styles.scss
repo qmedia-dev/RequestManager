@@ -83,3 +83,35 @@ body {
 .table.data {
     margin: 0 -15px;
 }
+
+.edit-status {
+    &.opened {
+        background-color: #5cb85c;
+        border-color: transparent;
+        color: #ffffff;
+
+        &::before {
+            content: 'Opened';
+        }
+    }
+
+    &.closed {
+        background-color: #444444;
+        border-color: transparent;
+        color: #ffffff;
+
+        &::before {
+            content: 'Closed';
+        }
+    }
+
+    &.deteled {
+        background-color: #d9534f;
+        border-color: transparent;
+        color: #ffffff;
+
+        &::before {
+            content: 'Deleted';
+        }
+    }
+}

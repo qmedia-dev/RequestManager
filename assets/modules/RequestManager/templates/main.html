@@ -61,13 +61,7 @@
                 <tr>
                     <td>
                         <div class="btn-group">
-                            <button type="button" class="btn btn-success btn-sm dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Opened</button>
-                            <ul class="dropdown-menu" role="menu">
-                                <li><a href="#">Opened</a></li>
-                                <li><a href="#">Closed</a></li>
-                                <li class="divider"></li>
-                                <li><a href="#">Delete</a></li>
-                            </ul>
+                            <button type="button" class="btn btn-sm edit-status opened"></button>
                         </div>
                     </td>
                     <td class="text-nowrap">2019/09/12</td>
@@ -78,7 +72,7 @@
                     <td class="text-nowrap">+375 (29) 123-45-67</td>
                     <td></td>
                     <td></td>
-                    <td><a class="edit" href="javascript:void(0);">Пусто</a></td>
+                    <td><a class="edit-comment" href="javascript:void(0);">Пусто</a></td>
                 </tr>
                 <tr>
                     <td>
@@ -111,12 +105,22 @@
     <script src="../assets/modules/RequestManager/js/bootstrap-editable.min.js"></script>
     <script src="../assets/modules/RequestManager/js/jquery.datatables.min.js"></script>
     <script>
-        jQuery('#request-table a.edit').editable({
-            url: '/comment',
+        jQuery('.edit-comment').editable({
+            url: '/request_comment',
             type: 'text',
             pk: 1,
+            name: 'comment'
+        });
+        jQuery('.edit-status').editable({
+            url: '/request_status',
+            type: 'select',
+            pk: 1,
             name: 'comment',
-            title: 'Enter username'
+            source: [
+                {id: 'opened', text: 'Opened'},
+                {id: 'closed', text: 'Closed'},
+                {id: 'deleted', text: 'Deleted'}
+            ]
         });
 
         jQuery("#request-table").DataTable({
