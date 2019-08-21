@@ -41,64 +41,78 @@
     <div class="container pt-1 pb-1">
         <p>Описание модуля, его предназначения, функционала, преимуществ и прочих прекрасностей...</p>
     </div>
-    <div class="table-responsive">
-        <table class="display table data" id="request-table">
-            <thead>
-                <tr>
-                    <th class="">Status</th>
-                    <th class="">Date</th>
-                    <th class="">City</th>
-                    <th class="">Vacancy</th>
-                    <th class="">Full Name</th>
-                    <th class="">Email</th>
-                    <th class="">Phone</th>
-                    <th class="">Comment</th>
-                    <th class="">Resume File</th>
-                    <th class="">Employee Comment</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>
-                        <div class="btn-group">
-                            <button type="button" class="btn btn-sm edit-status opened"></button>
-                        </div>
-                    </td>
-                    <td class="text-nowrap">2019/09/12</td>
-                    <td>Минск</td>
-                    <td>Координатор рекламных акций</td>
-                    <td>Иванов Алексей Константинович</td>
-                    <td class="text-nowrap">ivanov@gmail.com</td>
-                    <td class="text-nowrap">+375 (29) 123-45-67</td>
-                    <td></td>
-                    <td></td>
-                    <td><a class="edit-comment" href="javascript:void(0);">Пусто</a></td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="btn-group">
-                            <button type="button" class="btn btn-danger btn-sm dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Closed</button>
-                            <ul class="dropdown-menu" role="menu">
-                                <li><a href="#">Opened</a></li>
-                                <li><a href="#">Closed</a></li>
-                                <li class="divider"></li>
-                                <li><a href="#">Delete</a></li>
-                            </ul>
-                        </div>
-                    </td>
-                    <td class="text-nowrap">2019/09/12</td>
-                    <td>Минск</td>
-                    <td>Координатор рекламных акций</td>
-                    <td>Иванов Алексей Константинович</td>
-                    <td class="text-nowrap">ivanov@gmail.com</td>
-                    <td class="text-nowrap">+375 (29) 123-45-67</td>
-                    <td></td>
-                    <td></td>
-                    <td><a class="edit" href="javascript:void(0);"></a></td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <table class="display table data" id="request-table">
+        <thead>
+            <tr>
+                <th class="">Status</th>
+                <th class="">Date</th>
+                <th class="">City</th>
+                <th class="">Vacancy</th>
+                <th class="">Full Name</th>
+                <th class="">Email</th>
+                <th class="">Phone</th>
+                <th class="">Comment</th>
+                <th class="">Resume File</th>
+                <th class="">Employee Comment</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><button type="button" class="btn btn-sm edit-status opened" data-value="opened">opened</button></td>
+                <td class="text-nowrap">2019/09/12</td>
+                <td>Минск</td>
+                <td>Координатор рекламных акций</td>
+                <td>Иванов Алексей Константинович</td>
+                <td class="text-nowrap">ivanov@gmail.com</td>
+                <td class="text-nowrap">+375 (29) 123-45-67</td>
+                <td></td>
+                <td></td>
+                <td><a class="edit-comment" href="javascript:void(0);"></a></td>
+            </tr>
+            <tr>
+                <td><button type="button" class="btn btn-sm edit-status closed" data-value="closed">closed</button></td>
+                <td class="text-nowrap">2019/09/12</td>
+                <td>Минск</td>
+                <td>HR Intern / Стажер в управление HR</td>
+                <td>Григорьева Светлана Ивановна</td>
+                <td class="text-nowrap">grigireva@gmail.com</td>
+                <td class="text-nowrap">+375 (29) 111-22-33</td>
+                <td>Рассмотрите, пожалуйста, мою кандидатуру на должность стажёра в HR-управление</td>
+                <td>
+                    <i class="fa fa-file-o"></i>
+                    <a href="#" download title="Резюме Григорьева">Резюме Григорьева</a>
+                </td>
+                <td><a class="edit-comment" href="javascript:void(0);"></a></td>
+            </tr>
+            <tr>
+                <td><button type="button" class="btn btn-sm edit-status deleted" data-value="deleted">deleted</button></td>
+                <td class="text-nowrap">2019/09/12</td>
+                <td>Минск</td>
+                <td>Координатор рекламных акций</td>
+                <td>Иванов Алексей Константинович</td>
+                <td class="text-nowrap">ivanov@gmail.com</td>
+                <td class="text-nowrap">+375 (29) 123-45-67</td>
+                <td></td>
+                <td></td>
+                <td><a class="edit-comment" href="javascript:void(0);"></a></td>
+            </tr>
+            <tr>
+                <td><button type="button" class="btn btn-sm edit-status closed" data-value="closed">closed</button></td>
+                <td class="text-nowrap">2019/09/12</td>
+                <td>Минск</td>
+                <td>HR Intern / Стажер в управление HR</td>
+                <td>Григорьева Светлана Ивановна</td>
+                <td class="text-nowrap">grigireva@gmail.com</td>
+                <td class="text-nowrap">+375 (29) 111-22-33</td>
+                <td>Рассмотрите, пожалуйста, мою кандидатуру на должность стажёра в HR-управление</td>
+                <td>
+                    <i class="fa fa-file-o"></i>
+                    <a href="#" download title="Резюме Григорьева">Резюме Григорьева</a>
+                </td>
+                <td><a class="edit-comment" href="javascript:void(0);"></a></td>
+            </tr>
+        </tbody>
+    </table>
 
 
     <script src="../assets/modules/RequestManager/js/bootstrap.min.js"></script>
@@ -113,14 +127,28 @@
         });
         jQuery('.edit-status').editable({
             url: '/request_status',
+            showbuttons: false,
             type: 'select',
             pk: 1,
             name: 'comment',
-            source: [
-                {id: 'opened', text: 'Opened'},
-                {id: 'closed', text: 'Closed'},
-                {id: 'deleted', text: 'Deleted'}
-            ]
+            source: [{
+                    value: 'opened',
+                    text: 'opened'
+                },
+                {
+                    value: 'closed',
+                    text: 'closed'
+                },
+                {
+                    value: 'deleted',
+                    text: 'deleted'
+                }
+            ],
+            defaultValue: 'opened',
+            success: function (response, newValue) {
+                this.classList.remove('opened', 'closed', 'deleted');
+                this.classList.add(newValue);
+            }
         });
 
         jQuery("#request-table").DataTable({

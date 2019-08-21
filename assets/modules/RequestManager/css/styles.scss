@@ -25,15 +25,12 @@ body {
     }
 }
 
-.table-responsive {
-    flex-grow: 1;
-}
-
 .table.data {
 
     td,
     th {
         vertical-align: middle;
+        padding: 10px !important;
     }
 }
 
@@ -86,32 +83,20 @@ body {
 
 .edit-status {
     &.opened {
-        background-color: #5cb85c;
+        background-color: #5cb85c !important;
         border-color: transparent;
         color: #ffffff;
-
-        &::before {
-            content: 'Opened';
-        }
     }
 
     &.closed {
-        background-color: #444444;
+        background-color: #444444 !important;
         border-color: transparent;
         color: #ffffff;
-
-        &::before {
-            content: 'Closed';
-        }
     }
 
-    &.deteled {
-        background-color: #d9534f;
+    &.deleted {
+        background-color: #d9534f !important;
         border-color: transparent;
         color: #ffffff;
-
-        &::before {
-            content: 'Deleted';
-        }
     }
 }
