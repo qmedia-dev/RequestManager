@@ -26,7 +26,7 @@ switch ($_GET['q']) {
         $value = $_POST['value'];
 
         // Вывод поступившей инфы в лог админки (для отладки)
-        $modx->logEvent(1, 1, json_encode($_POST, JSON_UNESCAPED_UNICODE), 'request_comment');
+        $modx->logEvent(1, 1, json_encode($_POST, JSON_UNESCAPED_UNICODE), 'request_status');
 
         die();
         break;
