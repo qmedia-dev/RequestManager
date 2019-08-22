@@ -6,7 +6,7 @@
 
 ## Установка
 * скопировать папку _assets_ в корень сайта
-* в вызове formlister добавить &prepareAfterProcess=`SendRequest`
+* в вызове formlister добавить _`&prepareAfterProcess=SendRequest`_
 * содержимое SendRequest:
 ```php
 /*
