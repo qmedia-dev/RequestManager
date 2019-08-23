@@ -34,3 +34,6 @@ $fields = array(
 $modx->db->insert($fields, $modx->getFullTableName('название_таблицы'));
 ```
 * ...
+
+## Планы
+* допилить install для таблицы и сниппета
