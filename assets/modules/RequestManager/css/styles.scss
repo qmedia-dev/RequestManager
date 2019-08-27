@@ -50,10 +50,11 @@
         padding: 12px !important;
     }
 
-    tr {
+    tbody>tr {
         &.deleted {
             color: #444444;
             text-decoration: none;
+            background-color: #ffffff !important;
 
             .edit-status {
                 background-color: #444444 !important;
