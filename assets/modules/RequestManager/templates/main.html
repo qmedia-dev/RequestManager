@@ -96,15 +96,15 @@
             const answer = confirm("Вы действительно хотите удалить запись?");
             if (answer) {
                 const params = {
-                    pk: '[+id+]',
+                    pk: id,
                     value: 'deleted'
                 };
-                $.ajax({
+                jQuery.ajax({
                     type: 'post',
                     url: '/request_status',
                     data: params,
-                    success: function (row = id) {
-                        document.querySelector('.request-' + row).classList.add('deleted');
+                    success: function () {
+                        jQuery('.request-' + id).addClass('deleted');
                     }
                 });
             }

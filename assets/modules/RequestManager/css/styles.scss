@@ -49,6 +49,31 @@
         vertical-align: middle;
         padding: 12px !important;
     }
+
+    tr {
+        &.deleted {
+            color: #444444;
+            text-decoration: none;
+
+            .edit-status {
+                background-color: #444444 !important;
+                border-color: transparent;
+                color: #ffffff;
+                font-size: 0;
+
+                &::before {
+                    content: 'deleted';
+                    display: block;
+                    padding: 5px 0;
+                    font-size: .6772rem;
+                }
+            }
+        }
+
+        td {
+            opacity: 0.4;
+        }
+    }
 }
 
 .edit-status {
