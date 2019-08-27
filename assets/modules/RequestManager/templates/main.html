@@ -55,6 +55,7 @@
                     <th class="">Comment</th>
                     <th class="">Resume File</th>
                     <th class="">Employee Comment</th>
+                    <th class=""></th>
                 </tr>
             </thead>
             [+vacancy_output+]
@@ -83,10 +84,6 @@
                 {
                     value: 'closed',
                     text: 'closed'
-                },
-                {
-                    value: 'deleted',
-                    text: 'deleted'
                 }
             ],
             defaultValue: 'opened',
@@ -95,6 +92,23 @@
                 this.classList.add(newValue);
             }
         });
+        const deleteRequest = function (id) {
+            const answer = confirm("Вы действительно хотите удалить запись?");
+            if (answer) {
+                const params = {
+                    pk: '[+id+]',
+                    value: 'deleted'
+                };
+                $.ajax({
+                    type: 'post',
+                    url: '/request_status',
+                    data: params,
+                    success: function (row = id) {
+                        document.querySelector('.request-' + row).classList.add('deleted');
+                    }
+                });
+            }
+        };
 
         jQuery("#request-table").DataTable({
             "columns": [{
@@ -107,6 +121,8 @@
                 "orderable": true
             }, {
                 "orderable": true
+            }, {
+                "orderable": false
             }, {
                 "orderable": false
             }, {
