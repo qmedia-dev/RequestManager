@@ -25,7 +25,7 @@ if ($modx->event->name == 'OnManagerPageInit') {
 
     // TODO: тут нужно реализовать создание таблицы requestmanager_table в БД
     $createSQL = '
-        CREATE TABLE IF NOT EXISTS ' . $this->modx->getFullTableName('requestmanager_table') . ' (
+        CREATE TABLE IF NOT EXISTS ' . $modx->getFullTableName('requestmanager_table') . ' (
             `id` int(10) NOT NULL AUTO_INCREMENT,
             `date` varchar(255) NOT NULL,
             `city` varchar(255) NOT NULL,
