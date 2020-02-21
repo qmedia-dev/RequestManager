@@ -11,7 +11,7 @@
  *
  * @internal        @guid RequestManager
  * @internal        @modx_category Qmedia
- * @internal        @properties 
+ * @internal        @properties &property_name=_Название_свойства_ <span class="comment">_Описание_свойства_</span>;text;_Значение_по_умолчанию_
  * @internal        @installset base, sample
  */
  

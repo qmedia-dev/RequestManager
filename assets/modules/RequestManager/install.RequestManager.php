@@ -23,8 +23,10 @@ if ($modx->event->name == 'OnManagerPageInit') {
     $fields = array('enable_sharedparams' => 1);
     $modx->db->update($fields, $M, 'id = "' . $moduleId . '"');
 
+    // TODO: тут нужно реализовать создание таблицы requestmanager_table в БД
+
     // добавление связей
-    $snippets = array();
+    $snippets = array('RequestManagerSend');
     $plugins = array();
 
     foreach ($snippets as $snippet) {

@@ -1,7 +1,7 @@
 /**
  * RequestManagerAjax
  *
- * Обработчик ajax-запросов модуля Request Manager
+ * Обработчик ajax-запросов модуля RequestManager
  *
  * @category        plugin
  * @version         1.0.0
