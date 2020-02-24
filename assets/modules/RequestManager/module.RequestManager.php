@@ -24,7 +24,7 @@ $placeholders = array(
     'module_id'         => $module->module_id,
     'module_url'        => $module->module_url,
     'jquery_path'       => $module->jquery_path,
-    'vacancy_output'    => $module->getVacancies($modx)
+    'items_output'    => $module->getItems($modx)
 );
 
 $output = $modx->parseText($tpl, $placeholders);

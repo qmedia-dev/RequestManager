@@ -30,41 +30,38 @@ class RequestManager
 
 	public function checkFile($str,$name,$modx) {
 		if(empty($str)) {
-			return 'Резюме нет.';
+			return 'Файла нет.';
 		}
 		else {
-			$tpl = RequestManager::getFileContents('resume_item.html');
+			$tpl = RequestManager::getFileContents('file_item.html');
 			$placeholders = array(
-				'file_link'		=> $str,
-				'person_name'	=> $name
+				'file_link'		=> $str
 			);
 			return $modx->parseText($tpl, $placeholders);
 		}
 	}
 
-	public function getVacancies($modx)
+	public function getItems($modx)
 	{
-		$vacansies_select = $modx->db->select('*', $modx->getFullTableName('requestmanager_table'), '', 'id DESC');
-		while( $row = $modx->db->getRow( $vacansies_select ) ) {
+		$items_select = $modx->db->select('*', $modx->getFullTableName('requestmanager_table'), '', 'id DESC');
+		while( $row = $modx->db->getRow( $items_select ) ) {
 			if($row['status'] != 'deleted') {
-				$tpl = RequestManager::getFileContents('vacancy_item.html');
+				$tpl = RequestManager::getFileContents('item.html');
 				$placeholders = array(
 					'id'				=> $row['id'],
 					'date'				=> $row['date'],
-					'city'				=> $row['city'],
-					'vacancy'			=> $row['vacancy'],
 					'name'				=> $row['name'],
 					'email'				=> $row['email'],
 					'phone'				=> $row['phone'],
 					'comment'			=> $row['comment'],
-					'employee_comment'	=> $row['employee_comment'],
+					'manager_comment'	=> $row['manager_comment'],
 					'status'			=> $row['status'],
 					'check_file'		=> RequestManager::checkFile($row['file'],$row['name'],$modx)
 				);
-				$vacancy_items[] = $modx->parseText($tpl, $placeholders);
+				$items[] = $modx->parseText($tpl, $placeholders);
 			}
 		}
-		$output = implode('',$vacancy_items);
+		$output = implode('',$items);
 		return $output;
 	}
 }
