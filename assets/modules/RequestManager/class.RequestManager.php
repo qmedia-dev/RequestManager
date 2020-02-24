@@ -44,6 +44,7 @@ class RequestManager
 	public function getItems($modx)
 	{
 		$items_select = $modx->db->select('*', $modx->getFullTableName('requestmanager_table'), '', 'id DESC');
+		$items = array();
 		while( $row = $modx->db->getRow( $items_select ) ) {
 			if($row['status'] != 'deleted') {
 				$tpl = RequestManager::getFileContents('item.html');
@@ -58,8 +59,7 @@ class RequestManager
 					'status'			=> $row['status'],
 					'check_file'		=> RequestManager::checkFile($row['file'],$row['name'],$modx)
 				);
-				$items[] = $modx->parseText($tpl, $placeholders);
-				$modx->logEvent(1, 1, json_encode($items, JSON_UNESCAPED_UNICODE), 'Request Manager');
+				array_push($items, $modx->parseText($tpl, $placeholders));
 			}
 		}
 		$output = implode('',$items);
