@@ -23,19 +23,17 @@ if ($modx->event->name == 'OnManagerPageInit') {
     $fields = array('enable_sharedparams' => 1);
     $modx->db->update($fields, $M, 'id = "' . $moduleId . '"');
 
-    // TODO: тут нужно реализовать создание таблицы requestmanager_table в БД
+    // создание таблицы requestmanager_table в БД
     $createSQL = "
     CREATE TABLE IF NOT EXISTS " . $modx->getFullTableName('requestmanager_table') . " (
         `id` int(11) NOT NULL AUTO_INCREMENT,
         `date` varchar(255) NOT NULL DEFAULT '',
-        `city` varchar(255) NOT NULL DEFAULT '',
-        `vacancy` varchar(255) NOT NULL DEFAULT '',
         `name` varchar(255) NOT NULL DEFAULT '',
         `email` varchar(255) NOT NULL DEFAULT '',
         `phone` varchar(255) NOT NULL DEFAULT '',
         `comment` varchar(255) NOT NULL DEFAULT '',
         `file` varchar(255) NOT NULL DEFAULT '',
-        `employee_comment` varchar(255) NOT NULL DEFAULT '',
+        `manager_comment` varchar(255) NOT NULL DEFAULT '',
         PRIMARY KEY (`id`)
     ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
     ";
