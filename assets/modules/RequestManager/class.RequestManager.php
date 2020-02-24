@@ -43,25 +43,28 @@ class RequestManager
 
 	public function getItems($modx)
 	{
-		$items_select = $modx->db->select('*', $modx->getFullTableName('requestmanager_table'), '', 'id DESC');
-		while( $row = $modx->db->getRow( $items_select ) ) {
+		$vacansies_select = $modx->db->select('*', $modx->getFullTableName('requestmanager_table'), '', 'id DESC');
+		while( $row = $modx->db->getRow( $vacansies_select ) ) {
 			if($row['status'] != 'deleted') {
 				$tpl = RequestManager::getFileContents('item.html');
 				$placeholders = array(
 					'id'				=> $row['id'],
 					'date'				=> $row['date'],
+					'city'				=> $row['city'],
+					'vacancy'			=> $row['vacancy'],
 					'name'				=> $row['name'],
 					'email'				=> $row['email'],
 					'phone'				=> $row['phone'],
 					'comment'			=> $row['comment'],
-					'manager_comment'	=> $row['manager_comment'],
+					'employee_comment'	=> $row['employee_comment'],
 					'status'			=> $row['status'],
 					'check_file'		=> RequestManager::checkFile($row['file'],$row['name'],$modx)
 				);
-				$items[] = $modx->parseText($tpl, $placeholders);
+				$vacancy_items[] = $modx->parseText($tpl, $placeholders);
 			}
 		}
-		$output = implode('',$items);
+		$output = implode('',$vacancy_items);
 		return $output;
+	}
 	}
 }
