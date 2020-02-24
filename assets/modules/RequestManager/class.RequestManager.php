@@ -59,6 +59,7 @@ class RequestManager
 					'check_file'		=> RequestManager::checkFile($row['file'],$row['name'],$modx)
 				);
 				$items[] = $modx->parseText($tpl, $placeholders);
+				$modx->logEvent(1, 1, json_encode($items, JSON_UNESCAPED_UNICODE), 'Request Manager');
 			}
 		}
 		$output = implode('',$items);
