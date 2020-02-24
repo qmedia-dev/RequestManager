@@ -24,21 +24,21 @@ if ($modx->event->name == 'OnManagerPageInit') {
     $modx->db->update($fields, $M, 'id = "' . $moduleId . '"');
 
     // TODO: тут нужно реализовать создание таблицы requestmanager_table в БД
-    $createSQL = '
-        CREATE TABLE IF NOT EXISTS ' . $modx->getFullTableName('requestmanager_table') . ' (
-            `id` int(10) NOT NULL AUTO_INCREMENT,
-            `date` varchar(255) NOT NULL,
-            `city` varchar(255) NOT NULL,
-            `vacancy` varchar(255) NOT NULL,
-            `name` varchar(255) NOT NULL,
-            `email` varchar(255) NOT NULL,
-            `phone` varchar(255) NOT NULL,
-            `comment` varchar(255) NOT NULL,
-            `file` varchar(255) NOT NULL,
-            `employee_comment` varchar(255) NOT NULL,
-            PRIMARY KEY (`id`)
-        ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-    ';
+    $createSQL = "
+    CREATE TABLE IF NOT EXISTS " . $modx->getFullTableName('requestmanager_table') . " (
+        `id` int(11) NOT NULL AUTO_INCREMENT,
+        `date` varchar(255) NOT NULL DEFAULT '',
+        `city` varchar(255) NOT NULL DEFAULT '',
+        `vacancy` varchar(255) NOT NULL DEFAULT '',
+        `name` varchar(255) NOT NULL DEFAULT '',
+        `email` varchar(255) NOT NULL DEFAULT '',
+        `phone` varchar(255) NOT NULL DEFAULT '',
+        `comment` varchar(255) NOT NULL DEFAULT '',
+        `file` varchar(255) NOT NULL DEFAULT '',
+        `employee_comment` varchar(255) NOT NULL DEFAULT '',
+        PRIMARY KEY (`id`)
+    ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+    ";
     $modx->db->query($createSQL);
 
     // добавление связей
