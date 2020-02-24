@@ -66,5 +66,4 @@ class RequestManager
 		$output = implode('',$vacancy_items);
 		return $output;
 	}
-	}
 }
