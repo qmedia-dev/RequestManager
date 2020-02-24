@@ -45,20 +45,18 @@
         <table class="display table data" id="request-table">
             <thead>
                 <tr>
-                    <th class="">Status</th>
-                    <th class="">Date</th>
-                    <th class="">City</th>
-                    <th class="">Vacancy</th>
-                    <th class="">Full Name</th>
+                    <th class="">Статус</th>
+                    <th class="">Дата</th>
+                    <th class="">Имя</th>
                     <th class="">Email</th>
-                    <th class="">Phone</th>
-                    <th class="">Comment</th>
-                    <th class="">Resume File</th>
-                    <th class="">Employee Comment</th>
+                    <th class="">Телефон</th>
+                    <th class="">Доп. информация</th>
+                    <th class="">Прикреплённый файл</th>
+                    <th class="">Комментарий менеджера</th>
                     <th class=""></th>
                 </tr>
             </thead>
-            [+vacancy_output+]
+            [+items_output+]
         </table>
     </div>
 
@@ -113,10 +111,6 @@
         jQuery("#request-table").DataTable({
             "columns": [{
                 "orderable": false
-            }, {
-                "orderable": true
-            }, {
-                "orderable": true
             }, {
                 "orderable": true
             }, {
