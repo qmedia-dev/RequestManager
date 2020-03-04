@@ -15,6 +15,8 @@ if (isset($files_arr['file']) && $files_arr['file']['error'] === 0) {
     }
 }
 
+
+
 $formData['more_info'][] = !empty($formData['domain']) ? 'Адрес сайта: '.$formData['domain'] : '';
 $formData['more_info'][] = !empty($formData['comment']) ? 'Комментарий: '.$formData['comment'] : '';
 
@@ -25,6 +27,7 @@ $fields = array(
     'phone' => $formData['phone'],
     'comment' => implode('<br>',$formData['more_info']),
     'file' => $relative_path,
+	'page_id' => $formData['page-id'],
     'status' => 'opened'
 );
 

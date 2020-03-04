@@ -44,7 +44,7 @@ class RequestManager
 
 	public function getItems()
 	{
-		$items_select = $this->modx->db->select('*', $this->modx->getFullTableName('requestmanager_table'), '', 'id DESC');
+		$items_select = $this->modx->db->query('SELECT content.pagetitle,request.id,request.date,request.name,request.email,request.phone,request.comment,request.manager_comment,request.status,request.file,request.page_id FROM '.$this->modx->getFullTableName('requestmanager_table').' AS request INNER JOIN '.$this->modx->getFullTableName('site_content').' AS content ON content.id = request.page_id');
 		$items = array();
 		while( $row = $this->modx->db->getRow( $items_select ) ) {
 			if($row['status'] != 'deleted') {
@@ -58,13 +58,19 @@ class RequestManager
 					'comment'			=> $row['comment'],
 					'manager_comment'	=> $row['manager_comment'],
 					'status'			=> $row['status'],
-					'check_file'		=> RequestManager::checkFile($row['file'],$row['name'])
+					'check_file'		=> RequestManager::checkFile($row['file'],$row['name']),
+					'page' 				=> RequestManager::CreatePageLink($row['page_id'],$row['pagetitle'])
 				);
 				array_push($items, $this->modx->parseText($tpl, $placeholders));
 			}
 		}
 		$output = implode('',$items);
 		return $output;
+	}
+
+	public function CreatePageLink($page_id,$page_title)
+	{
+		return $this->modx->parseText(RequestManager::getFileContents('page_link.html'), ['page_link'=>$this->modx->makeUrl($page_id),'page_title'=>$page_title]);
 	}
 
 	public function DateFormat($unix_date,$mask = 'd.m.Y')

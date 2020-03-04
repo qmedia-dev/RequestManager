@@ -34,6 +34,7 @@ if ($modx->event->name == 'OnManagerPageInit') {
         `comment` varchar(255) NULL,
         `file` varchar(255) NULL,
         `manager_comment` varchar(255) NULL,
+        `page_id` int(11) NOT NULL,
         PRIMARY KEY (`id`)
     ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
     ";
