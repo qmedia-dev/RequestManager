@@ -1,5 +1,7 @@
 <?
 $relative_path = '';
+$formData = $data;
+
 $files_arr = $FormLister->getFormData('files');
 if (isset($files_arr['file']) && $files_arr['file']['error'] === 0) {
 	$file_directory = 'assets/files/resume/';
@@ -13,14 +15,18 @@ if (isset($files_arr['file']) && $files_arr['file']['error'] === 0) {
     }
 }
 
+$formData['more_info'][] = !empty($formData['domain']) ? 'Адрес сайта: '.$formData['domain'] : '';
+$formData['more_info'][] = !empty($formData['comment']) ? 'Комментарий: '.$formData['comment'] : '';
+
 $fields = array(
-    'date'  => date('Y/m/d'),
-    'name' => $data['name'],
-    'email' => $data['email'],
-    'phone' => $data['phone'],
-    'comment' => $data['comment'],
+    'date'  => date('U'),
+    'name' => $formData['name'],
+    'email' => $formData['email'],
+    'phone' => $formData['phone'],
+    'comment' => implode('<br>',$formData['more_info']),
     'file' => $relative_path,
     'status' => 'opened'
 );
+
 $modx->db->insert($fields, $modx->getFullTableName('requestmanager_table'));
 ?>
