@@ -11,9 +11,9 @@
 
  * @internal        @properties
  * @internal        @modx_category Qmedia
- * @internal        @installset base, sample 
+ * @internal        @installset base, sample
  */
- 
+
 /**
  * RequestManagerSend
  *
@@ -27,8 +27,8 @@
 
  * @documentation   Для обработки форм, у вызова FormLister добавьте RequestManagerSend в параметр prepareAfterProcess
  * @documentation   &prepareAfterProcess=`RequestManagerSend`
- * @documentation 
+ * @documentation
  * @documentation   Документация: https://github.com/qmedia-dev/RequestManager
  */
 
-return require MODX_BASE_PATH . 'assets/modules/RequestManager/snippet.RequestManagerSend.php';
+require_once MODX_BASE_PATH . 'assets/modules/RequestManager/snippet.RequestManagerSend.php';
