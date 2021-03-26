@@ -1,35 +1,30 @@
-<?
-$relative_path = '';
+<?php
 $formData = $data;
 
-$files_arr = $FormLister->getFormData('files');
-if (isset($files_arr['file']) && $files_arr['file']['error'] === 0) {
-	$file_directory = 'assets/files/resume/';
-	$filename = $FormLister->fs->takeFileName($files_arr['file']['name']);
-	$format = $FormLister->fs->takeFileExt($files_arr['file']['name']);
-	$filename = $modx->stripAlias($filename).'.'.$format;
-	$filename = $FormLister->fs->getInexistantFilename($file_directory.$filename,true);
-	if ($FormLister->fs->makeDir($file_directory) && copy($files_arr['file']['tmp_name'],$filename)) {
-        $relative_path = $FormLister->fs->relativePath($filename);
-        $FormLister->setField('path',$relative_path);
-    }
-}
-
-
-
-$formData['more_info'][] = !empty($formData['domain']) ? 'Адрес сайта: '.$formData['domain'] : '';
-$formData['more_info'][] = !empty($formData['comment']) ? 'Комментарий: '.$formData['comment'] : '';
-
 $fields = array(
-    'date'  => date('U'),
-    'name' => $formData['name'],
-    'email' => $formData['email'],
-    'phone' => $formData['phone'],
-    'comment' => implode('<br>',$formData['more_info']),
-    'file' => $relative_path,
-	'page_id' => $formData['page-id'],
-    'status' => 'opened'
+	'date'  => date('U'),
+	'name' => $formData['your-name'],
+	'email' => $formData['your-email'],
+	'phone' => $formData['your-phone'],
+	'tarif' => $formData['your-tarif'],
+	'price' => $formData['event-price'],
+	'status' => 'new',
+	'manager_comment' => '',
+	'person_number' => $formData['person_number'],
+	'person_number_link' => $formData['pdf_link'],
+	'payment_link' => $formData['payment_link'],
+	'counter_fbc' => $formData['counter_fbc'],
+	'counter_fbp' => $formData['counter_fbp'],
+	'ip_user' => $formData['ip_user']
 );
 
+$event_page_id = (int)$data['event-id'];
+//$event_title = $modx->getTemplateVar(9, '*', $event_page_id)['value'];
+$event_title = $modx->getDocument($event_page_id)['pagetitle'];
+$fields['event'] = $event_title;
+$fields['event_id'] = $event_page_id;
+
 $modx->db->insert($fields, $modx->getFullTableName('requestmanager_table'));
+
+unset($event);
 ?>

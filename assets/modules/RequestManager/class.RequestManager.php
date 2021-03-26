@@ -44,38 +44,43 @@ class RequestManager
 
 	public function getItems()
 	{
-		$items_select = $this->modx->db->query('SELECT content.pagetitle,request.id,request.date,request.name,request.email,request.phone,request.comment,request.manager_comment,request.status,request.file,request.page_id FROM '.$this->modx->getFullTableName('requestmanager_table').' AS request INNER JOIN '.$this->modx->getFullTableName('site_content').' AS content ON content.id = request.page_id');
+		$items_select = $this->modx->db->query('Select * From '.$this->modx->getFullTableName('requestmanager_table').'Where status Not in ("deleted") Order by id DESC');
 		$items = array();
 		while( $row = $this->modx->db->getRow( $items_select ) ) {
-			if($row['status'] != 'deleted') {
-				$tpl = RequestManager::getFileContents('item.html');
-				$placeholders = array(
-					'id'				=> $row['id'],
-					'date'				=> RequestManager::DateFormat($row['date']),
-					'name'				=> $row['name'],
-					'email'				=> $row['email'],
-					'phone'				=> $row['phone'],
-					'comment'			=> $row['comment'],
-					'manager_comment'	=> $row['manager_comment'],
-					'status'			=> $row['status'],
-					'check_file'		=> RequestManager::checkFile($row['file'],$row['name']),
-					'page' 				=> RequestManager::CreatePageLink($row['page_id'],$row['pagetitle'])
-				);
-				array_push($items, $this->modx->parseText($tpl, $placeholders));
-			}
+			$tpl = RequestManager::getFileContents('item.html');
+			$placeholders = array(
+				'id' => $row['id'],
+				'date'  => RequestManager::DateFormat($row['date']),
+				'name' => $row['name'],
+				'email' => $row['email'],
+				'phone' => $row['phone'],
+				'tarif' => $row['tarif'],
+				'price' => $row['price'],
+				'status' => $row['status'],
+				'manager_comment' => $row['manager_comment'],
+				'person_number' => $row['person_number'],
+				'payment_link' => $row['payment_link'],
+				'event' => $row['event'],
+        'event_id' => $row['event_id'],
+				'counter_fbc' => $row['counter_fbc'],
+				'counter_fbp' => $row['counter_fbp'],
+				'ip_user' => $row['ip_user']
+			);
+			array_push($items, $this->modx->parseText($tpl, $placeholders));
 		}
 		$output = implode('',$items);
 		return $output;
 	}
-
-	public function CreatePageLink($page_id,$page_title)
+	
+	public function CreatePageLink($page_id,$page_title) 
 	{
 		return $this->modx->parseText(RequestManager::getFileContents('page_link.html'), ['page_link'=>$this->modx->makeUrl($page_id),'page_title'=>$page_title]);
 	}
-
-	public function DateFormat($unix_date,$mask = 'd.m.Y')
+	
+	public function DateFormat($unix_date,$mask = 'd.m.Y H:i:s')
 	{
 		$date = $this->date->createFromFormat('U', $unix_date);
+		$date->add(new \DateInterval('PT3H2M30S'));
 
 		return $date->format($mask);
 	}

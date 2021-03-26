@@ -27,14 +27,21 @@ if ($modx->event->name == 'OnManagerPageInit') {
     $createSQL = "
     CREATE TABLE IF NOT EXISTS " . $modx->getFullTableName('requestmanager_table') . " (
         `id` int(11) NOT NULL AUTO_INCREMENT,
-        `date` varchar(255) NOT NULL,
-        `name` varchar(255) NULL,
-        `email` varchar(255) NULL,
-        `phone` varchar(255) NULL,
-        `comment` varchar(255) NULL,
-        `file` varchar(255) NULL,
-        `manager_comment` varchar(255) NULL,
-        `page_id` int(11) NOT NULL,
+        `date` varchar(255) NOT NULL DEFAULT '',
+        `name` varchar(255) NOT NULL DEFAULT '',
+        `email` varchar(255) NOT NULL DEFAULT '',
+        `phone` varchar(255) NOT NULL DEFAULT '',
+        `tarif` varchar(255) NOT NULL DEFAULT '',
+        `price` varchar(255) NOT NULL DEFAULT '',
+        `status` varchar(255) NOT NULL DEFAULT '',
+        `person_number` varchar(255) NOT NULL DEFAULT '',
+        `payment_link` varchar(255) NOT NULL DEFAULT '',
+        `event` varchar(255) NOT NULL DEFAULT '',
+        `event_id` varchar(255) NOT NULL DEFAULT '',
+        `counter_fbc` varchar(255) NULL DEFAULT '',
+        `counter_fbp` varchar(255) NULL DEFAULT '',
+        `ip_user` varchar(255) NOT NULL DEFAULT '',
+        `manager_comment` varchar(255) NOT NULL DEFAULT '',
         PRIMARY KEY (`id`)
     ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
     ";

@@ -1,139 +1,232 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-    <title>RequestManager</title>
-    <link rel="stylesheet" type="text/css" href="../assets/modules/RequestManager/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="../assets/modules/RequestManager/css/bootstrap-editable.css">
-    <link rel="stylesheet" type="text/css" href="../assets/modules/RequestManager/css/jquery.datatables.css">
-    <link rel="stylesheet" type="text/css" href="../assets/modules/RequestManager/css/modern.css">
-    <link rel="stylesheet" type="text/css" href="media/style/[+theme+]/css/styles.min.css">
-    <link rel="stylesheet" type="text/css" href="../assets/modules/RequestManager/css/styles.css">
-    <script type="text/javascript" src="[+jquery_path+]"></script>
-    <script type="text/javascript" src="media/script/tabpane.js"></script>
-    <script type="text/javascript" src="media/script/mootools/mootools.js"></script>
-    <script>
-        function showLoader() {
-            document.querySelector('body').classList.add('loading');
-        }
-    </script>
-</head>
-
-<body>
-    <div id="mainloader"></div>
-    <h1 style="margin-left: 10px;">
-        <i class="fa fa-envelope-open-o"></i>Request Manager
-    </h1>
-
-    <div id="actions">
-        <div class="btn-group">
-            <a class="btn btn-secondary" href="javascript:;" onclick="window.location.href=window.location.href;">
-                <i class="fa fa-refresh"></i>
-                <span>Обновить</span>
-            </a>
-            <a class="btn btn-danger" href="javascript:;" onclick="window.location.href='index.php?a=106';">
-                <i class="fa fa-times-circle"></i>
-                <span>Закрыть</span>
-            </a>
-        </div>
-    </div>
-
-    <div class="container pt-1">
-        <!-- <p>Описание модуля, его предназначения, функционала, преимуществ и прочих прекрасностей...</p> -->
-    </div>
-    <div class="table-responsive">
-        <table class="display table data" id="request-table">
-            <thead>
-                <tr>
-                    <th class="">Статус</th>
-                    <th class="">Дата</th>
-                    <th class="">Имя</th>
-                    <th class="">Email</th>
-                    <th class="">Телефон</th>
-                    <th class="">Доп. информация</th>
-                    <th class="">Прикреплённый файл</th>
-                    <th class="">Комментарий менеджера</th>
-                    <th class=""></th>
-                </tr>
-            </thead>
-            [+items_output+]
-        </table>
-    </div>
-
-
-    <script src="../assets/modules/RequestManager/js/bootstrap.min.js"></script>
-    <script src="../assets/modules/RequestManager/js/bootstrap-editable.min.js"></script>
-    <script src="../assets/modules/RequestManager/js/jquery.datatables.min.js"></script>
-    <script>
-        jQuery('.edit-comment').editable({
-            url: '/request_comment',
-            type: 'text',
-            name: 'comment'
-        });
-        jQuery('.edit-status').editable({
-            url: '/request_status',
-            showbuttons: false,
-            type: 'select',
-            name: 'comment',
-            source: [{
-                    value: 'opened',
-                    text: 'opened'
-                },
-                {
-                    value: 'closed',
-                    text: 'closed'
-                }
-            ],
-            defaultValue: 'opened',
-            success: function (response, newValue) {
-                this.classList.remove('opened', 'closed', 'deleted');
-                this.classList.add(newValue);
+    <head>
+        <title>RequestManager</title>
+        <link rel="stylesheet" type="text/css" href="../assets/modules/RequestManager/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="../assets/modules/RequestManager/css/bootstrap-editable.css">
+        <link rel="stylesheet" type="text/css" href="../assets/modules/RequestManager/css/jquery.datatables.css">
+        <link rel="stylesheet" type="text/css" href="../assets/modules/RequestManager/css/modern.css">
+        <link rel="stylesheet" type="text/css" href="media/style/[+theme+]/css/styles.min.css">
+        <link rel="stylesheet" type="text/css" href="../assets/modules/RequestManager/css/styles.css?v=jhvshachfa">
+        <script type="text/javascript" src="[+jquery_path+]"></script>
+        <script type="text/javascript" src="media/script/tabpane.js"></script>
+        <script type="text/javascript" src="media/script/mootools/mootools.js"></script>
+        <script>
+            function showLoader() {
+                document.querySelector('body').classList.add('loading');
             }
-        });
-        const deleteRequest = function (id) {
-            const answer = confirm("Вы действительно хотите удалить запись?");
-            if (answer) {
-                const params = {
-                    pk: id,
-                    value: 'deleted'
-                };
-                jQuery.ajax({
-                    type: 'post',
-                    url: '/request_status',
-                    data: params,
-                    success: function () {
-                        jQuery('.request-' + id).addClass('deleted');
-                    }
+        </script>
+    </head>
+
+    <body>
+        <div id="mainloader"></div>
+        <h1 style="margin-left: 10px;">
+            <i class="fa fa-envelope-open-o"></i>Request Manager
+        </h1>
+
+        <div id="actions">
+            <div class="btn-group">
+                <a class="btn btn-secondary" href="javascript:;" onclick="window.location.href=window.location.href;">
+                    <i class="fa fa-refresh"></i>
+                    <span>Обновить</span>
+                </a>
+                <a class="btn btn-secondary" href="javascript:;" onclick="ExportCSV();">
+                    <i class="fa fa-download"></i>
+                    <span>Выгрузить в csv</span>
+                </a>
+                <a class="btn btn-danger" href="javascript:;" onclick="window.location.href='index.php?a=106';">
+                    <i class="fa fa-times-circle"></i>
+                    <span>Закрыть</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="container pt-1">
+            <!-- <p>Описание модуля, его предназначения, функционала, преимуществ и прочих прекрасностей...</p> -->
+        </div>
+        <div class="table-responsive">
+            <table class="display table data" id="request-table">
+                <thead>
+                    <tr>
+                        <th class="">Статус</th>
+                        <th class="">ID</th>
+                        <th class="">Дата</th>
+                        <th class="">Имя</th>
+                        <th class="">Email</th>
+                        <th class="">Телефон</th>
+                        <th class="">Тариф</th>
+                        <th class="">Цена</th>
+                        <th class="">Номер</th>
+                        <th class="">Мероприятие</th>
+                        <th class="">Ссылка на оплату</th>
+                        <th class="">Facebook FBC</th>
+						<th class="">Facebook FBP</th>
+						<th class="">IP</th>
+                        <th class="">Комментарий менеджера</th>
+                        <th class=""></th>
+                    </tr>
+                </thead>
+                [+items_output+]
+            </table>
+        </div>
+
+
+        <script src="../assets/modules/RequestManager/js/bootstrap.min.js"></script>
+        <script src="../assets/modules/RequestManager/js/bootstrap-editable.min.js"></script>
+        <script src="../assets/modules/RequestManager/js/jquery.datatables.min.js"></script>
+        <script>
+            const send_facebook = function(price, user_id) {
+                fbq('track', 'Purchase', {
+                    value: Number(price),
+                    currency: 'RUB',
+                    contents: [{
+                        id: String(user_id),
+                        quantity: 1
+                    }],
+                    content_type: 'product'
+                });
+                console.log(`send_facebook(${Number(price)}, '${String(user_id)}')`)
+            };
+
+            function copyToClipboard(e, link) {
+                e.preventDefault();
+                var copytext = document.createElement('input');
+                copytext.value = link;
+                document.body.appendChild(copytext);
+                copytext.select();
+                document.execCommand('copy');
+                document.body.removeChild(copytext);
+
+                alert('Ссылка скопирована.');
+            }
+
+            function ExportCSV() {
+                let request = jQuery.ajax({
+                    url: '/export-csv',
+                    method: 'POST',
+                    dataType: 'json'
+                });
+
+                request.done(function(msg) {
+                    window.open(msg.link);
+                });
+
+                request.fail(function(jqXHR, textStatus) {
+                    alert("Request failed: " + textStatus);
                 });
             }
-        };
 
-        jQuery("#request-table").DataTable({
-            "columns": [{
-                "orderable": false
-            }, {
-                "orderable": true
-            }, {
-                "orderable": true
-            }, {
-                "orderable": false
-            }, {
-                "orderable": false
-            }, {
-                "orderable": false
-            }, {
-                "orderable": false
-            }, {
-                "orderable": false
-            }, {
-                "orderable": false
-            }],
-            "order": [
-                [1, 'asc']
-            ],
-            "lengthMenu": [10, 25, 50]
-        });
-    </script>
-</body>
+            jQuery('.edit-comment').editable({
+                url: '/request_comment',
+                type: 'text',
+                name: 'comment'
+            });
+            jQuery('.edit-status').editable({
+                url: '/request_status',
+                showbuttons: false,
+                type: 'select',
+                name: 'comment',
+                source: [{
+                        value: 'new',
+                        text: 'new'
+                    },
+                    {
+                        value: 'paid',
+                        text: 'paid'
+                    },
+                    {
+                        value: 'canceled',
+                        text: 'canceled'
+                    }
+                ],
+                defaultValue: 'new',
+                success: function(response, newValue) {
+                    this.classList.remove('new', 'paid', 'canceled', 'deleted');
+                    this.classList.add(newValue);
+                    const fb_price = jQuery(this).attr('data-fb-price');
+                    const fb_id = jQuery(this).attr('data-fb-id');
+                    if (newValue === 'paid') {
+                        send_facebook(fb_price, fb_id);
+                    }
+                }
+            });
+            const deleteRequest = function(id) {
+                const answer = confirm("Вы действительно хотите удалить запись?");
+                if (answer) {
+                    const params = {
+                        pk: id,
+                        value: 'deleted'
+                    };
+                    jQuery.ajax({
+                        type: 'post',
+                        url: '/request_status',
+                        data: params,
+                        success: function() {
+                            jQuery('.request-' + id).addClass('deleted');
+                        }
+                    });
+                }
+            };
+
+            jQuery("#request-table").DataTable({
+                "columns": [{
+                    "orderable": false
+                }, {
+                    "orderable": true
+                }, {
+                    "orderable": true
+                }, {
+                    "orderable": true
+                }, {
+                    "orderable": true
+                }, {
+                    "orderable": true
+                }, {
+                    "orderable": true
+                }, {
+                    "orderable": true
+                }, {
+                    "orderable": true
+                }, {
+                    "orderable": true
+                }, {
+                    "orderable": true
+                }, {
+                    "orderable": true
+                }, {
+                    "orderable": true
+                }, {
+                    "orderable": true
+                }, {
+                    "orderable": true
+                }, {
+                    "orderable": true
+                }],
+                "order": [
+                    [1, 'desc']
+                ],
+                "lengthMenu": [10, 25, 50]
+            });
+        </script>
+
+		<!-- Facebook Pixel Code -->
+		<script>
+		!function(f,b,e,v,n,t,s)
+		{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+		n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+		if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+		n.queue=[];t=b.createElement(e);t.async=!0;
+		t.src=v;s=b.getElementsByTagName(e)[0];
+		s.parentNode.insertBefore(t,s)}(window, document,'script',
+		'https://connect.facebook.net/en_US/fbevents.js');
+		fbq('init', '704254156915886');
+		fbq('track', 'PageView');
+		</script>
+		<noscript><img height="1" width="1" style="display:none"
+		src="https://www.facebook.com/tr?id=704254156915886&ev=PageView&noscript=1"
+		/></noscript>
+		<!-- End Facebook Pixel Code -->
+    </body>
 
 </html>
